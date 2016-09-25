@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Last Will Archive Puzzle Solver</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<a href="https://github.com/meekee7/beetlepuzzlesolver/tree/gh-pages"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+<div class="wrapper container-fluid">
+  <div class="row">
+    <div class="col-md-6 text-center col-lg-offset-4 col-lg-4">
+      <h1 class="text-center">Last Will - Archive<br>
+        Puzzle Solver</h1>
+    </div>
+  </div>
+  <hr>
+</div>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3 col-lg-offset-0 col-lg-12"><strong> Puzzle rules </strong> <br>
+      Construct words with the letters. 
+      Each puzzle has at least 40 acceptable words.
+There are 1.728.000 valid positions, 120 of them will solve this puzzle. No valid position leaves the game in an unsolvable state. <br>
+      Reaching the closest solution will require at most 16 steps on the shortest path (11-12 on average). 
+      Reaching any postion will require at most 28 steps on the shortest path (18-19 on average). </div><br>
+      <strong><font color="red"><noscript>JavaScript is required to run this solver. In your browser JavaScript is disabled or unsupported. Please enable JavaScript or try a different browser.</noscript></font></strong>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="text-center col-sm-2 col-sm-offset-5 table-bordered">
+      <label for="allletters"><strong>All letters</strong></label>
+      <div class="row">
+          <div class="input-group">
+            <input type="text" id="allletters" style="text-align:center" class="form-control" aria-describedby="addon1" autocomplete="off" onInput="allletterinput()">
+          </div>
+          <label for="middleletter"><strong>Middle letter</strong></label>
+        <div class="input-group">
+            <input type="text" id="middleletter" style="text-align:center" class="form-control" aria-describedby="addon1" disabled autocomplete="off">
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+<hr>
+<div class="row">
+	<center>
+    Solving can take a couple of seconds (especially on smartphones). Please be patient.
+    </center>
+  <div class="text-center col-md-6 col-md-offset-3">
+    <button type="button" class="btn btn-lg btn-primary" onClick="solve()">Solve Puzzle</button>
+  </div>
+</div>
+<script>
+function allletterinput(){
+	var elem = document.getElementById("allletters");
+	var value = elem.value;
+	if (value.length > 9)
+		value = value.slice(0,9);
+	value = value.toUpperCase();
+	
+	
+	value.replace([0-9],"");
+	elem.value = value;
+	
+	
+	if (value.length >= 5)
+		document.getElementById("middleletter").value = value.slice(4,5);
+	}	
+function solve(){
+	var input = document.getElementById("allletters");
+	var solnode = document.getElementById("solutiontxt");
+	
+	if (input.length != 9){
+		solnode.innerHTML = "<font color=\"red\"> Error: Invalid input. The input has to contain nine letters.</font>";
+		return;	
+	}
+	
+	}
+</script>
+<hr>
+<div class="row">
+  <div class="text-center col-md-6 col-md-offset-3" id="solutiontxt"> 
+   </div>
+</div>
+<hr>
+<div class="row">
+  <div class="text-center col-md-6 col-md-offset-3">
+    <h4><!--TODO FOOTER--></h4>
+    <a href="http://mcro.org/morphopolis"> Morphopolis is a game by MCRO, released for various platforms. </a>
+    <p>Copyright &copy; 2016 &middot; All Rights Reserved &middot;</p>
+  </div>
+</div>
+<hr>
+<!--</div>-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script> 
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

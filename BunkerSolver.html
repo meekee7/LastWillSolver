@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Last Will Bunker Puzzle Solver</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<a href="https://github.com/meekee7/LastWillSolver/tree/gh-pages"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+<div class="wrapper container-fluid">
+  <div class="row">
+    <div class="col-md-6 text-center col-lg-offset-4 col-lg-4">
+      <h1 class="text-center">Last Will - Bunker<br>
+        Puzzle Solver</h1>
+    </div>
+  </div>
+  <hr>
+</div>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3 col-lg-offset-0 col-lg-12"><strong> Puzzle rules</strong> <br>
+      Find the Caesar bust at the end of the room.<br>
+      Enter the code from the bust.<br>
+      Read the note on the radio table.<br>
+      Enter the content of the note. <br>
+      Do what the deciphered text says, in order. <br>
+ </div><br>
+      <strong><font color="red"><noscript>JavaScript is required to run this solver. In your browser JavaScript is disabled or unsupported. Please enable JavaScript or try a different browser.</noscript></font></strong>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="text-center col-sm-2 col-sm-offset-5 table-bordered">
+    <label for="selletter">Letter:</label>
+  <select class="form-control" id="selletter" onChange="decipher()">
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+    <option>D</option>
+    <option>E</option>
+    <option>F</option>
+    <option>G</option>
+    <option>H</option>
+    <option>I</option>
+    <option>J</option>
+    <option>K</option>
+    <option>L</option>
+    <option>M</option>
+    <option>N</option>
+    <option>O</option>
+    <option>P</option>
+    <option>Q</option>
+    <option>R</option>
+    <option>S</option>
+    <option>T</option>
+    <option>U</option>
+    <option>V</option>
+    <option>W</option>
+    <option>X</option>
+    <option>Y</option>
+    <option>Z</option>
+  </select>      
+<label for="selnumber">Number:</label>
+  <select class="form-control" id="selnumber" onChange="decipher()">
+  	<option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+    <option>11</option>
+    <option>12</option>
+    <option>13</option>
+    <option>14</option>
+    <option>15</option>
+    <option>16</option>
+    <option>17</option>
+    <option>18</option>
+    <option>19</option>
+    <option>20</option>
+    <option>21</option>
+    <option>22</option>
+    <option>23</option>
+    <option>24</option>
+    <option>25</option>
+  </select>      
+  </div>
+  </div>
+  <hr>
+ <div class="row">
+     <div class="text-center table-bordered">
+ <label for="textinput">Text on the note:</label>
+ <textarea class="form-control" rows="4" id="textinput" onInput="decipher()"></textarea>
+ </div>
+ </div>
+</div>
+<hr>
+<div class="container">
+<div class="row">
+<div class="text-center table-bordered">
+	 <label for="textoutput">Deciphered text:</label>
+ <textarea class="form-control" rows="4" id="textoutput" disabled></textarea>
+  </div>
+  </div>
+  </div>
+<script>
+function decipher(){
+	var letternode = document.getElementById("selletter");
+	var codeletter = letternode.options[letternode.selectedIndex].value;
+	
+	var numbernode = document.getElementById("selnumber");
+	var codenumber = numbernode.options[numbernode.selectedIndex].value;
+	
+	var shiftval = codenumber - (codeletter.charCodeAt(0)-"A".charCodeAt(0));
+	var inputtext = document.getElementById("textinput").value;
+	
+	var resulttext = "";
+	for (var i=0; i<inputtext.length; i++){
+		var charcode = inputtext.charCodeAt(i);
+		var unshifted
+		if (charcode >= "A".charCodeAt(0) && charcode <= "Z".charCodeAt(0)) {
+			resulttext += String.fromCharCode(((charcode - "A".charCodeAt(0) + 26 - shiftval) % 26  + "A".charCodeAt(0)));
+		} else if (charcode >= "a".charCodeAt(0) && charcode <= "z".charCodeAt(0))
+			resulttext += String.fromCharCode(((charcode - "a".charCodeAt(0) + 26 - shiftval) % 26  + "a".charCodeAt(0)));
+		else
+			resulttext += String.fromCharCode(charcode);	
+	}
+	
+	document.getElementById("textoutput").value = resulttext;
+	}
+</script>
+<hr>
+<div class="row">
+  <div class="text-center col-md-6 col-md-offset-3" id="solutiontxt"> 
+   </div>
+</div>
+<hr>
+<div class="row">
+  <div class="text-center col-md-6 col-md-offset-3">
+    <h4><!--TODO FOOTER--></h4>
+    <a href="http://lastwill.gg/"> Last Will </a>
+    <p>Copyright &copy; 2016 &middot; All Rights Reserved &middot;</p>
+  </div>
+</div>
+<hr>
+<!--</div>-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script> 
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
