@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Last Will Guest Wing Puzzle Solver</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<a href="https://github.com/meekee7/LastWillSolver/tree/gh-pages"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+<div class="wrapper container-fluid">
+  <div class="row">
+    <div class="col-md-6 text-center col-lg-offset-4 col-lg-4">
+      <h1 class="text-center" href="index.html"><a href="index.html"> Last Will - Puzzle Solvers </a></h1>
+        <h2>Guest Wing</h2>
+    </div>
+  </div>
+  <hr>
+</div>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3 col-lg-offset-0 col-lg-12"><strong>Instructions</strong> <br>
+      Collect the eight objects scattered around the rooms.<br>
+      Figure out which word they are supposed to spell out. <br>
+      Put the eight objects on the table so that their first letters spell out the word. <br>
+      <br>
+      <strong>Known solutions:</strong><br>
+      <div style="font-family:monospace">
+      CARELESS CLEAREST ESCAPERS<br>
+      RESPECTS RESTLESS SCARLETS<br>
+      SPECTRAL SPECTRES STEALERS
+      </div>
+ </div><br>
+      <strong><font color="red"><noscript>JavaScript is required to run this solver. In your browser JavaScript is disabled or unsupported. Please enable JavaScript or try a different browser.</noscript></font></strong>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="text-center table-bordered">
+    <h4> Fast path for speedrunners </h4>
+    <div class="col-sm-2 col-sm-offset-5">
+    <label for="anagraminput">Eight letters from the objects:</label>
+  <input type="text" id="anagraminput" style="text-align:center" class="form-control" aria-describedby="addon1" autocomplete="off" onInput="anagram()">     
+  </div>
+     <div class="text-center col-md-6 col-md-offset-3" id="anagramsolutiontxt"> 
+   </div>
+  </div>
+  </div>
+  <hr>
+ <div class="row">
+     <div class="text-center table-bordered">
+     <h4>Regular path</h4>
+Under development
+ </div>
+ </div>
+</div>
+<hr>
+<script>
+function checkanagram(a, b){
+	ar = Array.from(a);
+	br = Array.from(b);
+	ar.sort();
+	br.sort();
+	if (ar.length != br.length)
+		return false;
+	for (var i=0; i<ar.length; i++)
+		if (ar[i] != br[i])
+			return false;
+	
+	console.log("match of " + a + " and " + b);
+	return true;
+}
+
+function anagram(){
+	var text = document.getElementById("anagraminput").value.toUpperCase();
+	if (text.length == 8) {
+		var knownwords = ["RESTLESS", "SPECTRES", "RESPECTS", "CARELESS", "CLEAREST", "ESCAPERS", "SCARLETS", "SPECTRAL", "STEALERS"];
+		var matches = [];
+		for (var i=0; i<knownwords.length; i++)
+			if (checkanagram(text, knownwords[i]))
+				matches.push(knownwords[i]);
+		if (matches.length == 0)
+			document.getElementById("anagramsolutiontxt").innerHTML = "<font color=\"red\">Error: no matches with known solutions</font>"
+		else 
+			document.getElementById("anagramsolutiontxt").innerHTML = matches;
+	}
+	else
+		document.getElementById("anagramsolutiontxt").innerHTML = "Input does not have 8 letters.";
+}
+</script>
+<hr>
+<div class="row">
+  <div class="text-center col-md-6 col-md-offset-3">
+    <h4><!--TODO FOOTER--></h4>
+    <a href="http://lastwill.gg/"> Last Will is a game by Lizard Factory </a>
+    <p>Copyright &copy; 2016 &middot; All Rights Reserved &middot;</p>
+  </div>
+</div>
+<hr>
+<!--</div>-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script> 
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

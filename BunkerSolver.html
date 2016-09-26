@@ -36,6 +36,8 @@
       Read the note on the radio table.<br>
       Enter the content of the note. <br>
       Do what the deciphered text says, in order. <br>
+      <br>
+      This puzzle is an application of the well-known <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher</a>.
  </div><br>
       <strong><font color="red"><noscript>JavaScript is required to run this solver. In your browser JavaScript is disabled or unsupported. Please enable JavaScript or try a different browser.</noscript></font></strong>
   </div>
@@ -133,7 +135,7 @@ function decipher(){
 	var resulttext = "";
 	for (var i=0; i<inputtext.length; i++){
 		var charcode = inputtext.charCodeAt(i);
-		if (charcode >= "A".charCodeAt(0) && charcode <= "Z".charCodeAt(0)) {
+		if (charcode >= "A".charCodeAt(0) && charcode <= "Z".charCodeAt(0)) { //That 26 is an elegant trick to avoid negative numbers
 			resulttext += String.fromCharCode(((charcode - "A".charCodeAt(0) + 26 - shiftval) % 26  + "A".charCodeAt(0)));
 		} else if (charcode >= "a".charCodeAt(0) && charcode <= "z".charCodeAt(0))
 			resulttext += String.fromCharCode(((charcode - "a".charCodeAt(0) + 26 - shiftval) % 26  + "a".charCodeAt(0)));
