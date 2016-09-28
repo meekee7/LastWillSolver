@@ -49,10 +49,22 @@
           <div class="input-group">
             <input type="text" id="allletters" style="text-align:center" class="form-control" aria-describedby="addon1" autocorrect="off" autocapitalize="off" autocomplete="off" onInput="allletterinput()">
           </div>
-          <label for="middleletter"><strong>Middle letter</strong></label>
-        <div class="input-group">
-            <input type="text" id="middleletter" style="text-align:center" class="form-control" aria-describedby="addon1" disabled autocomplete="off">
-        </div>
+          <strong>Layout</strong>
+          <div class="row">
+          <input id="lt1" style="text-align:center" type="text" size="1" disabled>
+          <input id="lt2" style="text-align:center" type="text" size="1" disabled>
+          <input id="lt3" style="text-align:center" type="text" size="1" disabled>
+          </div>
+          <div class="row">
+          <input id="lt4" style="text-align:center" type="text" size="1" disabled>
+          <input id="lt5" style="text-align:center" type="text" size="1" disabled>
+          <input id="lt6" style="text-align:center" type="text" size="1" disabled>
+          </div>
+          <div class="row">
+          <input id="lt7" style="text-align:center" type="text" size="1" disabled>
+          <input id="lt8" style="text-align:center" type="text" size="1" disabled>
+          <input id="lt9" style="text-align:center" type="text" size="1" disabled>
+          </div>
       </div>
     </div>
   </div>
@@ -82,8 +94,13 @@ function allletterinput(){
 	elem.value = value;
 	*/
 	
-	if (value.length >= 5)
-		document.getElementById("middleletter").value = value.slice(4,5);
+	//if (value.length >= 5)
+	//	document.getElementById("middleletter").value = value.slice(4,5);
+		
+	for (var i=0; i<9 && i<value.length; i++)
+		document.getElementById("lt"+(i+1)).value = value.slice(i,i+1).toLowerCase();
+	for (var i=value.length; i<9; i++)
+		document.getElementById("lt"+(i+1)).value = "";
 }
 
 function lettercountmatch(a, b){
@@ -149,8 +166,10 @@ function solve(){
         	} else 
 				solnode.innerHTML = "<font color=\"red\"> Error: Could not load word list. Responde code: " + this.status + ".</font>"
 	}
-	//request.open("GET", "https://meekee7.github.io/LastWillSolver/data/20k.txt", true); //For local testing
-	request.open("GET", "data/20k.txt", true);
+	if (document.URL.indexOf("file:///" != -1))
+		request.open("GET", "https://meekee7.github.io/LastWillSolver/data/20k.txt", true); //For local testing
+	else
+		request.open("GET", "data/20k.txt", true);
 	request.send();
 }
 </script>
