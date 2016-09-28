@@ -141,7 +141,7 @@ function solve(){
 						matches.push(wordlist[i]);
 				matches.sort(wordcomplength);
 				
-				var resultstring = "Found + " + matches.length + " matches:<br>";
+				var resultstring = "Found " + matches.length + " matches:<br>";
 				for (var i=0; i<matches.length; i++)
 					resultstring += (i+1) + ". "+matches[i]+"<br>";
 				solnode.innerHTML = resultstring;
