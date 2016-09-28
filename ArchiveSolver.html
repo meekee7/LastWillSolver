@@ -22,20 +22,23 @@
 <div class="wrapper container-fluid">
   <div class="row">
     <div class="col-md-6 text-center col-lg-offset-4 col-lg-4">
-      <h1 class="text-center">Last Will - Archive<br>
-        Puzzle Solver</h1>
+        <h1 class="text-center" href="index.html"><a href="index.html"> Last Will - Puzzle Solvers </a></h1>
+        <h2>Archives</h2>
     </div>
   </div>
   <hr>
 </div>
 <div class="container">
   <div class="row text-center">
-    <div class="col-md-6 col-md-offset-3 col-lg-offset-0 col-lg-12"><strong> Puzzle rules </strong> <br>
-      Construct words with the letters. 
-      Each puzzle has at least 40 acceptable words.
-There are 1.728.000 valid positions, 120 of them will solve this puzzle. No valid position leaves the game in an unsolvable state. <br>
-      Reaching the closest solution will require at most 16 steps on the shortest path (11-12 on average). 
-      Reaching any postion will require at most 28 steps on the shortest path (18-19 on average). </div><br>
+    <div class="col-md-6 col-md-offset-3 col-lg-offset-0 col-lg-12"><strong> Instructions </strong> <br>
+      Enter the nine letters below. <br>
+      Make sure that the middle letter (marked with the keyhole) is also the middle letter below. <br>
+      Click the 'Solve' button. <br>
+      Enter words in the game until you can fetch the key. Longer words make it rise faster.<br> <br>
+      
+      Each acceptable word needs to contain the letter in the middle and a vowel. The letter Y is not seen as a vowel by the game. <br>
+      <a href="https://github.com/first20hours/google-10000-english/blob/master/20k.txt">Source of the word list</a>
+      </div><br>
       <strong><font color="red"><noscript>JavaScript is required to run this solver. In your browser JavaScript is disabled or unsupported. Please enable JavaScript or try a different browser.</noscript></font></strong>
   </div>
   <hr>
@@ -66,8 +69,10 @@ There are 1.728.000 valid positions, 120 of them will solve this puzzle. No vali
 </div>
 <script>
 function allletterinput(){
+	
 	var elem = document.getElementById("allletters");
 	var value = elem.value;
+	/*
 	if (value.length > 9)
 		value = value.slice(0,9);
 	value = value.toUpperCase();
@@ -75,21 +80,79 @@ function allletterinput(){
 	
 	value.replace([0-9],"");
 	elem.value = value;
-	
+	*/
 	
 	if (value.length >= 5)
 		document.getElementById("middleletter").value = value.slice(4,5);
-	}	
+}
+
+function lettercountmatch(a, b){
+	for (var i=0; i<b.length; i++){
+		var char = b[i];
+		var bcount = 0;
+		for (var j=0; j<b.length; j++)
+			if (b[j] == char)
+				bcount++;
+		var acount = 0;
+		for (var j=0; j<a.length; j++)
+			if (a[j] == char)
+				acount++;
+		if (bcount > acount)
+			return false;
+	}
+	return true;
+}
+
+function acceptable(letters, middle, word){
+	var vowelregex = new RegExp(/[aeiou]/);
+	var wordregex = new RegExp("^(?:([" + word + "])(?!.*?1)){1,9}$");
+	return word.search(middle) != -1 && vowelregex.test(word) && wordregex.test(word) && lettercountmatch(letters, word);
+}
+
+function wordcomplength(a, b){
+	return b.length - a.length;
+}
+
 function solve(){
 	var input = document.getElementById("allletters");
+	var text = input.value.toLowerCase();
+	var middle = text.slice(4,5);
 	var solnode = document.getElementById("solutiontxt");
 	
-	if (input.length != 9){
+	if (text.length != 9){
 		solnode.innerHTML = "<font color=\"red\"> Error: Invalid input. The input has to contain nine letters.</font>";
 		return;	
 	}
-	
+	for (var i=0; i<text.length; i++)
+		if (!text[i].match("[a-z]")){
+			solnode.innerHTML = "<font color=\"red\"> Error: Invalid input. The input has to contain nine letters.</font>";
+			return;
+		}
+	solnode.innerHTML = "Processing. Please wait...";
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+		 if (this.readyState == 4)
+		 	if (this.status == 200) {
+            	var response = this.responseText;
+				var wordlist = response.split("\n");
+				var matches = [];
+				for (var i=0; i<wordlist.length; i++)
+					if (acceptable(text, middle, wordlist[i]))
+						matches.push(wordlist[i]);
+				matches.sort(wordcomplength);
+				
+				var resultstring = "Found + " + matches.length + " matches:<br>";
+				for (var i=0; i<matches.length; i++)
+					resultstring += (i+1) + ". "+matches[i]+"<br>";
+				solnode.innerHTML = resultstring;
+				
+        	} else 
+				solnode.innerHTML = "<font color=\"red\"> Error: Could not load word list. Responde code: " + this.status + ".</font>"
 	}
+	//request.open("GET", "https://meekee7.github.io/LastWillSolver/data/20k.txt", true); //For local testing
+	request.open("GET", "data/20k.txt", true);
+	request.send();
+}
 </script>
 <hr>
 <div class="row">
