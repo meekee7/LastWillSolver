@@ -31,9 +31,9 @@
 <div class="container">
   <div class="row text-center">
     <div class="col-md-6 col-md-offset-3 col-lg-offset-0 col-lg-12"><strong>Instructions</strong> <br>
-Factorize the numbers. <br>
-Put the objects on the table to spell out the factorization. <br>
-Press the button at the number to check.<br>
+    Built the numbers with the objects.<br>
+    If it has five digits built it directly, otherwise factorize it first.<br>
+	Press the button above the number to check.<br>
 <br>
 Apple: 1<br>
 Bowl: 3<br>
@@ -110,6 +110,14 @@ function factorize(){
 		return;
 	}
 	var number = text;
+	if (number >= 10000){
+		var digitized = digitize(number);
+		if (digitized == "error")
+			digitized = "NOT FITTING";
+		document.getElementById("solutiontxt").innerHTML = "<br>" + text + " | " + digitized;
+		return;
+	}
+	
 	var pairs = [];
 	for (var i=1; i<=Math.sqrt(number); i++){
 		if (number % i == 0)
