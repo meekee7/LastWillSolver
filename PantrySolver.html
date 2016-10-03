@@ -67,6 +67,15 @@ function getObject(num){
 	return "error";
 }
 
+function countdigits(num){
+	var count = 1;
+	while (num > 10){
+		count++;
+		num /= 10;
+	}
+	return count;
+}
+
 function digitize(num){
 	var result = [];
 	var numar = Array.from("" + num);
@@ -88,8 +97,8 @@ Pair.prototype.toSolString = function(){
 	var numstring = this.a + " &middot " + this.b;
 	var astring = digitize(this.a);
 	var bstring = digitize(this.b);
-	if (astring == "error" || bstring == "error")
-		return numstring + " | " + "NOT FITTING";
+	if (astring == "error" || bstring == "error" || countdigits(this.a) + countdigits(this.b) != 4)
+		return numstring + " | " + "not fitting";
 	else
 		return numstring + " | " + astring + " tower " + bstring;
 }
@@ -113,7 +122,7 @@ function factorize(){
 	if (number >= 10000){
 		var digitized = digitize(number);
 		if (digitized == "error")
-			digitized = "NOT FITTING";
+			digitized = "not fitting";
 		document.getElementById("solutiontxt").innerHTML = "<br>" + text + " | " + digitized;
 		return;
 	}
