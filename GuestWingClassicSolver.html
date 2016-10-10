@@ -32,29 +32,33 @@
   <div class="row text-center">
     <div class="col-md-6 col-md-offset-3 col-lg-offset-0 col-lg-12"><strong>Instructions</strong> <br>
       Collect the eight objects scattered around the rooms.<br>
-      Enter the patterns from the rooms below. <br>
+      Enter the patterns from the rooms below. Click the tiles on the panels to flip their colour.<br>      
       Put the eight objects on the table so that their first letters spell out the word from the output section. <br>
+      <br>
+      The underlying principle is simple: Each letter has an input tile set and a mask tile set. By combining each tile pair with the XOR operator you get the output tileset. The XOR operator yields white tiles when the two colours are the same and black tiles when they are different.
+      <br>
+      <br>
+      <a href="GuestWingFastSolver.html">Speedrunners and cheaters may use this solver instead.</a>
  </div><br>
       <strong><font color="red"><noscript>JavaScript is required to run this solver. In your browser JavaScript is disabled or unsupported. Please enable JavaScript or try a different browser.</noscript></font></strong>
   </div>
   <hr>
  <div class="row">
      <div class="text-center table-bordered">
-     <h4>Regular path</h4>
-     <noscript>Content missing for lack of Javascript</noscript>
+     <h4>Input - Rooms 1 and 3</h4>
      <div class="row">
-     <div class="col-lg-2">
+     <div class="col-lg-2 col-md-offset-2">
      <div class="row text-center">
      <strong>I</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-is-1-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-1-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-1-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-1-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-1-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-1-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-is-1-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-1-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-1-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-1-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-1-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-1-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-is-1-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-is-1-3-2" onClick="colourswitch(this.id)">X</button>
@@ -74,13 +78,13 @@
      <strong>II</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-is-2-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-2-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-2-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-2-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-2-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-2-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-is-2-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-2-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-2-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-2-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-2-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-2-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-is-2-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-is-2-3-2" onClick="colourswitch(this.id)">X</button>
@@ -100,13 +104,13 @@
      <strong>III</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-is-3-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-3-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-3-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-3-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-3-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-3-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-is-3-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-3-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-3-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-3-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-3-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-3-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-is-3-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-is-3-3-2" onClick="colourswitch(this.id)">X</button>
@@ -126,13 +130,13 @@
      <strong>IV</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-is-4-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-4-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-4-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-4-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-4-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-4-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-is-4-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-4-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-4-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-4-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-4-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-4-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-is-4-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-is-4-3-2" onClick="colourswitch(this.id)">X</button>
@@ -149,18 +153,18 @@
  </div>
  </div>
  <div class="row">
-     <div class="col-lg-2">
+     <div class="col-lg-2 col-md-offset-2">
      <div class="row text-center">
      <strong>V</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-is-5-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-5-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-5-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-5-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-5-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-5-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-is-5-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-5-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-5-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-5-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-5-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-5-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-is-5-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-is-5-3-2" onClick="colourswitch(this.id)">X</button>
@@ -180,13 +184,13 @@
      <strong>VI</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-is-6-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-6-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-6-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-6-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-6-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-6-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-is-6-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-6-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-6-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-6-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-6-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-6-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-is-6-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-is-6-3-2" onClick="colourswitch(this.id)">X</button>
@@ -206,13 +210,13 @@
      <strong>VII</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-is-7-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-7-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-7-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-7-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-7-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-7-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-is-7-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-7-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-7-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-7-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-7-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-7-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-is-7-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-is-7-3-2" onClick="colourswitch(this.id)">X</button>
@@ -232,13 +236,13 @@
      <strong>VIII</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-is-8-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-8-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-8-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-8-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-8-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-8-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-is-8-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-8-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-is-8-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-is-8-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-8-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-is-8-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-is-8-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-is-8-3-2" onClick="colourswitch(this.id)">X</button>
@@ -254,25 +258,26 @@
     </div>
  </div>
  </div>
+ <hr>
  <div class="row">
-     <div class="col-lg-2">
+ <h4>Masks - Room 2</h4>
+     <div class="col-lg-2 col-md-offset-2">
      <div class="row text-center">
-     <strong>I + <select class="form-control" id="sel-1" onChange="selectswitch(this.id)">
-     <option selected="selected">V</option>
-     <option>VI</option>
-     <option>VII</option>
-     <option>VIII</option>
+     <select class="form-control" id="sel-1" onChange="selectswitch(this.id)">
+     <option selected="selected">I + V</option>
+     <option>I + VI</option>
+     <option>I + VII</option>
+     <option>I + VIII</option>
      </select> 
-     </strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-ic-1-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-1-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-1-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-ic-1-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-1-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-1-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-ic-1-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-1-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-1-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-ic-1-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-1-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-1-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-ic-1-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-ic-1-3-2" onClick="colourswitch(this.id)">X</button>
@@ -289,21 +294,21 @@
  </div>
  <div class="col-lg-2">
      <div class="row text-center">
-     <strong>II + <select class="form-control" id="sel-2" onChange="selectswitch(this.id)">
-     <option>V</option>
-     <option selected="selected">VI</option>
-     <option>VII</option>
-     <option>VIII</option>
-     </select> </strong>
+     <select class="form-control" id="sel-2" onChange="selectswitch(this.id)">
+     <option>II + V</option>
+     <option selected="selected">II + VI</option>
+     <option>II + VII</option>
+     <option>II + VIII</option>
+     </select> 
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-ic-2-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-2-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-2-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-ic-2-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-2-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-2-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-ic-2-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-2-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-2-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-ic-2-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-2-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-2-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-ic-2-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-ic-2-3-2" onClick="colourswitch(this.id)">X</button>
@@ -320,21 +325,21 @@
  </div>
  <div class="col-lg-2">
      <div class="row text-center">
-     <strong>III + <select class="form-control" id="sel-3" onChange="selectswitch(this.id)">
-     <option>V</option>
-     <option>VI</option>
-     <option selected="selected">VII</option>
-     <option>VIII</option>
-     </select> </strong>
+     <select class="form-control" id="sel-3" onChange="selectswitch(this.id)">
+     <option>III + V</option>
+     <option>III + VI</option>
+     <option selected="selected">III + VII</option>
+     <option>III + VIII</option>
+     </select> 
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-ic-3-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-3-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-3-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-ic-3-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-3-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-3-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-ic-3-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-3-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-3-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-ic-3-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-3-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-3-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-ic-3-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-ic-3-3-2" onClick="colourswitch(this.id)">X</button>
@@ -351,22 +356,21 @@
  </div>
  <div class="col-lg-2">
      <div class="row text-center">
-     <strong>IV + <select class="form-control" id="sel-4" onChange="selectswitch(this.id)">
-     <option>V</option>
-     <option>VI</option>
-     <option>VII</option>
-     <option selected="selected">VIII</option>
+     <select class="form-control" id="sel-4" onChange="selectswitch(this.id)">
+     <option>IV + V</option>
+     <option>IV + VI</option>
+     <option>IV + VII</option>
+     <option selected="selected">IV + VIII</option>
      </select> 
-     </strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-ic-4-1-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-4-1-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-4-1-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-ic-4-1-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-4-1-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-4-1-3" onClick="colourswitch(this.id)">X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-ic-4-2-1" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-4-2-2" onClick="colourswitch(this.id)">X</button>
-        <button type="button" class="btn btn-black" id="bg-ic-4-2-3" onClick="colourswitch(this.id)">X</button>
+    	<button type="button" class="btn btn-white" id="bg-ic-4-2-1" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-4-2-2" onClick="colourswitch(this.id)">X</button>
+        <button type="button" class="btn btn-white" id="bg-ic-4-2-3" onClick="colourswitch(this.id)">X</button>
     <br>
     	<button type="button" class="btn btn-white" id="bg-ic-4-3-1" onClick="colourswitch(this.id)">X</button>
         <button type="button" class="btn btn-white" id="bg-ic-4-3-2" onClick="colourswitch(this.id)">X</button>
@@ -382,31 +386,33 @@
     </div>
  </div>
  </div>
+ <hr>
  <div class="row">
-     <div class="col-lg-2">
+ <h4>Output</h4>
+     <div class="col-lg-2 col-md-offset-2">
      <div class="row text-center">
      <strong>I</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-o-1-1-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-1-1-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-1-1-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-1-1-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-1-1-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-1-1-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-o-1-2-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-1-2-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-1-2-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-1-2-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-1-2-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-1-2-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-1-3-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-1-3-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-1-3-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-1-3-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-1-3-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-1-3-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-1-4-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-1-4-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-1-4-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-1-4-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-1-4-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-1-4-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-1-5-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-1-5-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-1-5-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-1-5-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-1-5-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-1-5-3" >X</button>
     </div>
  </div>
  <div class="col-lg-2">
@@ -414,25 +420,25 @@
      <strong>II</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-o-2-1-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-2-1-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-2-1-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-2-1-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-2-1-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-2-1-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-o-2-2-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-2-2-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-2-2-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-2-2-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-2-2-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-2-2-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-2-3-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-2-3-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-2-3-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-2-3-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-2-3-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-2-3-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-2-4-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-2-4-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-2-4-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-2-4-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-2-4-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-2-4-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-2-5-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-2-5-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-2-5-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-2-5-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-2-5-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-2-5-3" >X</button>
     </div>
  </div>
  <div class="col-lg-2">
@@ -440,25 +446,25 @@
      <strong>III</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-o-3-1-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-3-1-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-3-1-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-3-1-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-3-1-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-3-1-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-o-3-2-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-3-2-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-3-2-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-3-2-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-3-2-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-3-2-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-3-3-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-3-3-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-3-3-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-3-3-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-3-3-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-3-3-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-3-4-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-3-4-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-3-4-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-3-4-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-3-4-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-3-4-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-3-5-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-3-5-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-3-5-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-3-5-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-3-5-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-3-5-3" >X</button>
     </div>
  </div>
  <div class="col-lg-2">
@@ -466,53 +472,53 @@
      <strong>IV</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-o-4-1-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-4-1-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-4-1-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-4-1-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-4-1-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-4-1-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-o-4-2-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-4-2-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-4-2-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-4-2-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-4-2-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-4-2-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-4-3-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-4-3-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-4-3-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-4-3-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-4-3-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-4-3-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-4-4-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-4-4-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-4-4-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-4-4-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-4-4-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-4-4-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-4-5-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-4-5-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-4-5-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-4-5-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-4-5-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-4-5-3" >X</button>
     </div>
  </div>
  </div>
  <div class="row">
-     <div class="col-lg-2">
+     <div class="col-lg-2 col-md-offset-2">
      <div class="row text-center">
      <strong>V</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-o-5-1-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-5-1-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-5-1-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-5-1-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-5-1-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-5-1-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-o-5-2-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-5-2-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-5-2-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-5-2-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-5-2-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-5-2-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-5-3-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-5-3-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-5-3-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-5-3-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-5-3-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-5-3-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-5-4-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-5-4-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-5-4-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-5-4-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-5-4-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-5-4-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-5-5-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-5-5-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-5-5-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-5-5-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-5-5-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-5-5-3" >X</button>
     </div>
  </div>
  <div class="col-lg-2">
@@ -520,25 +526,25 @@
      <strong>VI</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-o-6-1-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-6-1-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-6-1-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-6-1-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-6-1-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-6-1-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-o-6-2-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-6-2-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-6-2-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-6-2-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-6-2-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-6-2-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-6-3-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-6-3-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-6-3-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-6-3-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-6-3-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-6-3-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-6-4-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-6-4-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-6-4-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-6-4-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-6-4-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-6-4-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-6-5-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-6-5-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-6-5-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-6-5-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-6-5-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-6-5-3" >X</button>
     </div>
  </div>
  <div class="col-lg-2">
@@ -546,25 +552,25 @@
      <strong>VII</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-o-7-1-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-7-1-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-7-1-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-7-1-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-7-1-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-7-1-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-o-7-2-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-7-2-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-7-2-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-7-2-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-7-2-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-7-2-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-7-3-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-7-3-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-7-3-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-7-3-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-7-3-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-7-3-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-7-4-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-7-4-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-7-4-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-7-4-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-7-4-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-7-4-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-7-5-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-7-5-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-7-5-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-7-5-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-7-5-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-7-5-3" >X</button>
     </div>
  </div>
  <div class="col-lg-2">
@@ -572,25 +578,25 @@
      <strong>VIII</strong>
      </div>
 	<div class="row btn-group">
-    	<button type="button" class="btn btn-black" id="bg-o-8-1-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-8-1-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-8-1-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-8-1-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-8-1-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-8-1-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-black" id="bg-o-8-2-1" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-8-2-2" >X</button>
-        <button type="button" class="btn btn-black" id="bg-o-8-2-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-8-2-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-8-2-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-8-2-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-8-3-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-8-3-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-8-3-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-8-3-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-8-3-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-8-3-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-8-4-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-8-4-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-8-4-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-8-4-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-8-4-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-8-4-3" >X</button>
     <br>
-    	<button type="button" class="btn btn-white" id="bg-o-8-5-1" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-8-5-2" >X</button>
-        <button type="button" class="btn btn-white" id="bg-o-8-5-3" >X</button>
+    	<button disabled type="button" class="btn btn-white" id="bg-o-8-5-1" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-8-5-2" >X</button>
+        <button disabled type="button" class="btn btn-white" id="bg-o-8-5-3" >X</button>
     </div>
  </div>
  </div>
@@ -602,8 +608,8 @@
 function selectswitch(id){
 	var elem = document.getElementById(id);
 	var choice = elem.options[elem.selectedIndex].value;
-	var id = parseInt(id.slice(4,5));
-	maskassociations[id-1]=romtonum(choice);
+	var num = parseInt(id.slice(4,5));
+	maskassociations[num - 1] = elem.selectedIndex + 5;
 	updateUI();
 }
 
@@ -615,27 +621,8 @@ function colourswitch(id){
 	updateUI();
 }
 
-function romtonum(rom){
-	if (rom == "I")
-		return 1;
-	if (rom == "II")
-		return 2;
-	if (rom == "III")
-		return 3;
-	if (rom == "IV")
-		return 4;
-	if (rom == "V")
-		return 5;
-	if (rom == "VI")
-		return 6;
-	if (rom == "VII")
-		return 7;
-	if (rom == "VIII")
-		return 8;
-	return "error";
-}
-
 var maskassociations = [5,6,7,8];
+updateUI();
 
 function idfromnums(type, num, row, col){
 	return "bg-"+type+"-"+num+"-"+row+"-"+col;
@@ -666,7 +653,6 @@ function updateUI(){
 		if (i >= 5)
 			mask = maskassociations[i-5]-4;
 		combine(i, mask);
-		console.log("did " + i);
 	}	
 }
 </script>
