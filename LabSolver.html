@@ -177,10 +177,17 @@ function solve(){
 							}
 						}
 				}
+				var largeclusters = clusters.filter(function(x){return x.size() >= 5});
 				
-				var resultstring = "Found " + clusters.length + " clusters:<br>";
-				for (var i=0; i<clusters.length; i++)
-					resultstring += (i+1) + ". "+clusters[i].values()+"<br>";
+				var resultstring = "Found " + largeclusters.length + " fitting cluster(s):<br>";
+				for (var i=0; i<largeclusters.length; i++){
+					var cluster = largeclusters[i].values();
+					cluster.sort();
+					resultstring += "Cluster "+(i+1)+" (" + cluster.length +" words):<br>";
+					for (var j=0; j<cluster.length; j++)
+						resultstring += (j+1) + ". "+cluster[j]+"<br>";
+					resultstring += "<br>";
+				}
 				solnode.innerHTML = resultstring;
 				
         	} else 
