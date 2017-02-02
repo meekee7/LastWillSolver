@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Last Will Archive Puzzle Solver</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<a href="https://github.com/meekee7/LastWillSolver/tree/gh-pages"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+<div class="wrapper container-fluid">
+  <div class="row">
+    <div class="col-md-6 text-center col-lg-offset-4 col-lg-4">
+        <h1 class="text-center" href="index.html"><a href="index.html"> Last Will - Puzzle Solvers </a></h1>
+        <h2>Laboratory</h2>
+    </div>
+  </div>
+  <hr>
+</div>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3 col-lg-offset-0 col-lg-12"><strong> Instructions </strong> <br>
+      Collect all the objects you can find in the room. <br>
+      Enter the first letter of each object below and hit the solve button. <br>
+      Enter the result word sequence on the table, but only swap out one letter at a time. <br>
+      <br>
+      Puzzle rules:<br>
+      You have to enter five distinct words. Each word can differ from the previous only by one letter.
+      Backtracking is permitted. You can return to previous words, but they will not be counted twice. <br>
+      Invalid words and removing more than one letter will cause the puzzle to reset.
+      <br>
+      <br>
+      The word list was combined from two sources: <br>
+      <a href="https://github.com/first20hours/google-10000-english/blob/master/20k.txt">Source 1</a> <br>
+		<a href="http://www.litscape.com/words/length/4_letters/4_letter_words.html"> Source 2 </a> <br>
+      </div><br>
+      <strong><font color="red"><noscript>JavaScript is required to run this solver. In your browser JavaScript is disabled or unsupported. Please enable JavaScript or try a different browser.</noscript></font></strong>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="text-center col-sm-2 col-sm-offset-5 table-bordered">
+      <label for="allletters"><strong>All letters</strong></label>
+      <div class="row">
+          <div class="input-group">
+            <input type="text" id="allletters" style="text-align:center" class="form-control" aria-describedby="addon1" autocorrect="off" autocapitalize="off" autocomplete="off" onInput="allletterinput()">
+          </div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+<hr>
+<div class="row">
+	<center>
+    Solving can take a couple of seconds (especially on smartphones). Please be patient.
+    </center>
+  <div class="text-center col-md-6 col-md-offset-3">
+    <button type="button" class="btn btn-lg btn-primary" onClick="solve()">Solve Puzzle</button>
+  </div>
+</div>
+	<script src="js/hashtable.js"></script>
+	<script src="js/hashset.js"></script>
+<script>
+function Pair(a,b){
+	if (a < b){
+		this.a = a;
+		this.b = b;
+	} else {
+		this.b = a;
+		this.a = b;
+	}
+}	
+	
+Pair.prototype.equals = function(other){
+	return other.a.equals(this.a) && other.b.equals(this.b);
+}
+	
+Pair.prototype.hashCode = function(){
+	return this.toString();
+}
+	
+Pair.prototype.toString = function(){
+	return this.a + " " + this.b;
+}	
+	
+function issimilar(a,b){
+	var mismatch = 0;
+	for (var i=0; i<a.length; i++)
+		if (a.charAt(i) != b.charAt(i))
+			mismatch++;
+	return mismatch <= 1;
+}
+	
+function allletterinput(){
+	/*
+	var elem = document.getElementById("allletters");
+	var value = elem.value;
+	var solnode = document.getElementById("solutiontxt");
+	if (samelettertwice(value))
+		solnode.innerHTML = "<font color=\"red\"> Warning: Input contains same letter twice </font>";
+	*/
+}
+
+function samelettertwice(word){
+	for (var i=0; i<4; i++)
+		for (var j=i+1; j<4; j++)
+			if (word[i] == word[j])
+				return true;
+	return false;
+}
+
+function solve(){
+	var input = document.getElementById("allletters");
+	var text = input.value.toLowerCase();
+	var solnode = document.getElementById("solutiontxt");
+	
+	solnode.innerHTML = "Processing. Please wait...";
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+		 if (this.readyState == 4)
+		 	if (this.status == 200) {
+            	var response = this.responseText;
+				var wordlist = response.split("\n");
+				var matches = [];
+				var regex = new RegExp("["+text+"]{4}");
+				for (var i=0; i<wordlist.length; i++)
+					if (regex.test(wordlist[i]))
+						matches.push(wordlist[i]);
+				//matches.sort();
+				var pairs = [];
+				for (var i=0; i<matches.length; i++)
+					for (var j=i+1; j<matches.length; j++)
+						if (issimilar(matches[i], matches[j]))
+							pairs.push(new Pair(matches[i], matches[j]));
+				
+				var wordset = new HashSet();
+				wordset.addAll(matches);
+				var pairmap = new Hashtable();
+				for (var i=0; i<matches.length; i++)
+					pairmap.put(matches[i], new HashSet());
+				
+				for (var i=0; i<pairs.length; i++){
+					var p=pairs[i];
+					pairmap.get(p.a).add(p);
+					pairmap.get(p.b).add(p);
+				}
+				
+				var clusters = [];
+				
+				while (!wordset.isEmpty()){
+					var startword = wordset.values()[0];
+					var cluster = new HashSet();
+					clusters.push(cluster);
+					var queue = [startword];
+						while (queue.length != 0){
+							var toinclude = queue.pop();
+							if (!cluster.contains(toinclude)){
+								cluster.add(toinclude);
+								wordset.remove(toinclude);
+								var pairset = pairmap.get(toinclude).values();
+								for (var i=0; i<pairset.length; i++){
+									var p = pairset[i];
+									queue.push(p.a);
+									queue.push(p.b);
+								}
+							}
+						}
+				}
+				
+				var resultstring = "Found " + clusters.length + " clusters:<br>";
+				for (var i=0; i<clusters.length; i++)
+					resultstring += (i+1) + ". "+clusters[i].values()+"<br>";
+				solnode.innerHTML = resultstring;
+				
+        	} else 
+				solnode.innerHTML = "<font color=\"red\"> Error: Could not load word list. Responde code: " + this.status + ".</font>"
+	}
+	if (document.URL.indexOf("file:///" != -1))
+		request.open("GET", "https://meekee7.github.io/LastWillSolver/data/fourlettersdistinct.txt", true); //For local testing
+	else
+		request.open("GET", "data/fourlettersdistinct.txt", true);
+	request.send();
+}
+</script>
+<hr>
+<div class="row">
+  <div class="text-center col-md-6 col-md-offset-3" id="solutiontxt"> 
+   </div>
+</div>
+<hr>
+<div class="row">
+  <div class="text-center col-md-6 col-md-offset-3">
+    <h4><!--TODO FOOTER--></h4>
+    <a href="http://lastwill.gg/"> Last Will is a game by Lizard Factory </a>
+    <p>Copyright &copy; 2016 &middot; All Rights Reserved &middot;</p>
+  </div>
+</div>
+<hr>
+<!--</div>-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-1.11.3.min.js"></script> 
+
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
