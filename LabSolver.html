@@ -36,7 +36,7 @@
       From the result cluster(s) pick a word sequence that follows the rules below and enter it. <br>
       <br>
       Puzzle rules:<br>
-      You have to enter five distinct words. Each word can differ from the previous only by one letter.
+      You have to enter five distinct words. Each word can differ from the previous word only by one letter.
       Backtracking is permitted. You can return to previous words, but they will not be counted twice. <br>
       Invalid words and removing more than one letter will cause the puzzle to reset.
       <br>
@@ -100,7 +100,7 @@ function issimilar(a,b){
 		if (a.charAt(i) != b.charAt(i))
 			mismatch++;
 	return mismatch <= 1;
-}
+}	
 	
 function allletterinput(){
 	/*
@@ -120,6 +120,50 @@ function samelettertwice(word){
 	return false;
 }
 
+function extractclusters(wordlist){
+	var pairs = [];
+	for (var i=0; i<wordlist.length; i++)
+		for (var j=i+1; j<wordlist.length; j++)
+			if (issimilar(wordlist[i], wordlist[j]))
+				pairs.push(new Pair(wordlist[i], wordlist[j]));
+				
+	var wordset = new HashSet();
+	wordset.addAll(wordlist);
+	var pairmap = new Hashtable();
+	for (var i=0; i<wordlist.length; i++)
+		pairmap.put(wordlist[i], new HashSet());
+			
+	for (var i=0; i<pairs.length; i++){
+		var p=pairs[i];
+		pairmap.get(p.a).add(p);
+		pairmap.get(p.b).add(p);
+	}
+				
+	var clusters = [];
+			
+	while (!wordset.isEmpty()){
+		var startword = wordset.values()[0];
+		var cluster = new HashSet();
+		clusters.push(cluster);
+		var queue = [startword];
+		while (queue.length != 0){
+			var toinclude = queue.pop();
+			if (!cluster.contains(toinclude)){
+				cluster.add(toinclude);
+				wordset.remove(toinclude);
+				var pairset = pairmap.get(toinclude).values();
+				for (var i=0; i<pairset.length; i++){
+					var p = pairset[i];
+					queue.push(p.a);
+					queue.push(p.b);
+				}	
+			}
+		}
+	}
+	var largeclusters = clusters.filter(function(x){return x.size() >= 5});
+	return largeclusters;
+}	
+	
 function solve(){
 	var input = document.getElementById("allletters");
 	var text = input.value.toLowerCase();
@@ -137,48 +181,8 @@ function solve(){
 				for (var i=0; i<wordlist.length; i++)
 					if (regex.test(wordlist[i]))
 						matches.push(wordlist[i]);
-				//matches.sort();
-				var pairs = [];
-				for (var i=0; i<matches.length; i++)
-					for (var j=i+1; j<matches.length; j++)
-						if (issimilar(matches[i], matches[j]))
-							pairs.push(new Pair(matches[i], matches[j]));
 				
-				var wordset = new HashSet();
-				wordset.addAll(matches);
-				var pairmap = new Hashtable();
-				for (var i=0; i<matches.length; i++)
-					pairmap.put(matches[i], new HashSet());
-				
-				for (var i=0; i<pairs.length; i++){
-					var p=pairs[i];
-					pairmap.get(p.a).add(p);
-					pairmap.get(p.b).add(p);
-				}
-				
-				var clusters = [];
-				
-				while (!wordset.isEmpty()){
-					var startword = wordset.values()[0];
-					var cluster = new HashSet();
-					clusters.push(cluster);
-					var queue = [startword];
-						while (queue.length != 0){
-							var toinclude = queue.pop();
-							if (!cluster.contains(toinclude)){
-								cluster.add(toinclude);
-								wordset.remove(toinclude);
-								var pairset = pairmap.get(toinclude).values();
-								for (var i=0; i<pairset.length; i++){
-									var p = pairset[i];
-									queue.push(p.a);
-									queue.push(p.b);
-								}
-							}
-						}
-				}
-				var largeclusters = clusters.filter(function(x){return x.size() >= 5});
-				
+				var largeclusters = extractclusters(matches);
 				var resultstring = "Found " + largeclusters.length + " fitting cluster(s):<br>";
 				for (var i=0; i<largeclusters.length; i++){
 					var cluster = largeclusters[i].values();
