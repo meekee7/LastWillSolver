@@ -35,7 +35,9 @@
       Flip the switches according to the solution.<br>
       <br>
       Puzzle rules:<br>
-      TODO<br>
+      There are three power lines: top, middle and bottom. Each line carries an amount of power as described by the clue sheet.<br>
+      Each fuse box has one fuse for each line, so each line also has three fuses. The line's power is shared equally between the fuses on it that are switched on.<br>
+      For each fuse box the sum of power shares of its fuses has to be equal to the number on the box. In that case the indicator of the box turns green.<br>
       <br>
       The puzzle is solved when all three boxes show green indicators.<br>
       To solve the <i>room</i>, you must solve the puzzle and then either use the elevator or step into the machine and pull a lever. </div>
@@ -46,43 +48,24 @@
     </noscript>
     </font></strong> </div>
   <hr>
-  <div class="row">
-    <div class="text-center col-sm-4 col-sm-offset-4 table-bordered">
-      <label for="allletters"><strong>All letters</strong></label>
-      <div class="row">
-        <div class="row">
-          <section>
-            <div style="float:left;">
-              <label for="sheet1">Sheet 1</label>
-              <input id="sheet1" style="text-align:center" type="number" size="2">
-            </div>
-            <div style="float: left;">
-              <label for="sheet2">Sheet 2</label>
-              <input id="sheet2" style="text-align:center" type="number" size="2">
-            </div>
-            <div style="float: left">
-              <label for="sheet3">Sheet 3</label>
-              <input id="sheet3" style="text-align:center" type="number" size="2">
-            </div>
-          </section>
-        </div>
-        <div class="row">
-          <section>
-            <div style="float:left;">
-              <label for="box1">Box 1</label>
-              <input id="box1" style="text-align:center" type="number" size="2">
-            </div>
-            <div style="float: left;">
-              <label for="box2">Box 2</label>
-              <input id="box2" style="text-align:center" type="number" size="2">
-            </div>
-            <div style="float: left">
-              <label for="box3">Box 3</label>
-              <input id="box3" style="text-align:center" type="number" size="2">
-            </div>
-          </section>
-        </div>
-      </div>
+  <div class="row text-center col-sm-6 col-sm-offset-3 table-bordered">
+    <div class="col-sm-4">
+      <label for="sheet1">Sheet 1</label>
+      <input id="sheet1" style="text-align:center" type="number" size="2">
+      <label for="box1">Box 1</label>
+      <input id="box1" style="text-align:center" type="number" size="2">
+    </div>
+    <div class="col-sm-4">
+      <label for="sheet2">Sheet 2</label>
+      <input id="sheet2" style="text-align:center" type="number" size="2">
+      <label for="box2">Box 2</label>
+      <input id="box2" style="text-align:center" type="number" size="2">
+    </div>
+    <div class="col-sm-4">
+      <label for="sheet3">Sheet 3</label>
+      <input id="sheet3" style="text-align:center" type="number" size="2">
+      <label for="box3">Box 3</label>
+      <input id="box3" style="text-align:center" type="number" size="2">
     </div>
   </div>
 </div>
@@ -177,12 +160,8 @@ function solve(){
 		solnode.innerHTML = "Solution found:";
 		var solcellnames = [["sl1", "sl4", "sl7"], ["sl2", "sl5", "sl8"],["sl3", "sl6", "sl9"]];
 		for (var i=0; i<3; i++)
-			for (var j=0; j<3; j++){
+			for (var j=0; j<3; j++)
 				document.getElementById(solcellnames[i][j]).value = solution.cols[i][j] == true ? "up" : "down";
-				console.log(solution.cols[i][j]);
-			}
-		console.log(solution.rsplits);
-		console.log(solution.cols)
 	}
 }
 </script>
@@ -192,19 +171,21 @@ function solve(){
 </div>
 <div class="text-center col-sm-2 col-sm-offset-5 table-bordered">
   <div class="row">
-    <input id="sl1" style="text-align:center" type="text" size="4" disabled>
-    <input id="sl2" style="text-align:center" type="text" size="4" disabled>
-    <input id="sl3" style="text-align:center" type="text" size="4" disabled>
-  </div>
-  <div class="row">
-    <input id="sl4" style="text-align:center" type="text" size="4" disabled>
-    <input id="sl5" style="text-align:center" type="text" size="4" disabled>
-    <input id="sl6" style="text-align:center" type="text" size="4" disabled>
-  </div>
-  <div class="row">
-    <input id="sl7" style="text-align:center" type="text" size="2" disabled>
-    <input id="sl8" style="text-align:center" type="text" size="4" disabled>
-    <input id="sl9" style="text-align:center" type="text" size="4" disabled>
+    <div class="col-sm-4">Box 1
+      <input id="sl1" style="text-align:center" type="text" size="4" disabled>
+      <input id="sl4" style="text-align:center" type="text" size="4" disabled>
+      <input id="sl7" style="text-align:center" type="text" size="4" disabled>
+    </div>
+    <div class="col-sm-4">Box 2
+      <input id="sl2" style="text-align:center" type="text" size="4" disabled>
+      <input id="sl5" style="text-align:center" type="text" size="4" disabled>
+      <input id="sl8" style="text-align:center" type="text" size="4" disabled>
+    </div>
+    <div class="col-sm-4">Box 3
+      <input id="sl3" style="text-align:center" type="text" size="4" disabled>
+      <input id="sl6" style="text-align:center" type="text" size="4" disabled>
+      <input id="sl9" style="text-align:center" type="text" size="4" disabled>
+    </div>
   </div>
 </div>
 <hr>
