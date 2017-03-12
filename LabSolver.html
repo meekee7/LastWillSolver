@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Last Will Archive Puzzle Solver</title>
+<title>Last Will Laboratory Puzzle Solver</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -83,7 +83,7 @@ function Pair(a,b){
 }	
 	
 Pair.prototype.equals = function(other){
-	return other.a.equals(this.a) && other.b.equals(this.b);
+	return other.a == this.a && other.b == this.b;
 }
 	
 Pair.prototype.hashCode = function(){
@@ -93,6 +93,15 @@ Pair.prototype.hashCode = function(){
 Pair.prototype.toString = function(){
 	return this.a + " " + this.b;
 }	
+
+function ClusterPack(elems,pairs){
+	this.elems=elems;
+	this.pairs=pairs;
+}
+	
+function getPath(pack){
+	;
+}
 	
 function issimilar(a,b){
 	var mismatch = 0;
@@ -144,8 +153,8 @@ function extractclusters(wordlist){
 	while (!wordset.isEmpty()){
 		var startword = wordset.values()[0];
 		var cluster = new HashSet();
-		clusters.push(cluster);
 		var queue = [startword];
+		var collectedpairs = new HashSet();
 		while (queue.length != 0){
 			var toinclude = queue.pop();
 			if (!cluster.contains(toinclude)){
@@ -156,11 +165,13 @@ function extractclusters(wordlist){
 					var p = pairset[i];
 					queue.push(p.a);
 					queue.push(p.b);
+					collectedpairs.add(p);
 				}	
 			}
 		}
+		clusters.push(new ClusterPack(cluster,collectedpairs.values()));
 	}
-	var largeclusters = clusters.filter(function(x){return x.size() >= 5});
+	var largeclusters = clusters.filter(function(x){return x.elems.size() >= 5;});
 	return largeclusters;
 }	
 	
@@ -185,7 +196,7 @@ function solve(){
 				var largeclusters = extractclusters(matches);
 				var resultstring = "Found " + largeclusters.length + " fitting cluster(s):<br>";
 				for (var i=0; i<largeclusters.length; i++){
-					var cluster = largeclusters[i].values();
+					var cluster = largeclusters[i].elems.values();
 					cluster.sort();
 					resultstring += "Cluster "+(i+1)+" (" + cluster.length +" words):<br>";
 					for (var j=0; j<cluster.length; j++)
