@@ -36,7 +36,7 @@
       Click the 'Solve' button. <br>
       Enter words in the game until you can fetch the key. Longer words make it rise faster, but shorter words take less time to enter.<br> <br>
       
-      Each acceptable word needs to contain the letter in the middle and a vowel. The letter Y is not seen as a vowel by the game. <br>
+      Each acceptable word needs to contain the letter in the middle and a vowel. The letter Y is seen as a vowel by the game. <br>
       <a href="https://github.com/first20hours/google-10000-english/blob/master/20k.txt">Source of the word list</a>
       </div><br>
       <strong><font color="red"><noscript>JavaScript is required to run this solver. In your browser JavaScript is disabled or unsupported. Please enable JavaScript or try a different browser.</noscript></font></strong>
@@ -121,7 +121,7 @@ function lettercountmatch(a, b){
 }
 
 function acceptable(letters, middle, word){
-	var vowelregex = new RegExp(/[aeiou]/);
+	var vowelregex = new RegExp(/[aeiouy]/);
 	var wordregex = new RegExp("^(?:([" + word + "])(?!.*?1)){1,9}$");
 	return word.search(middle) != -1 && vowelregex.test(word) && wordregex.test(word) && lettercountmatch(letters, word);
 }
